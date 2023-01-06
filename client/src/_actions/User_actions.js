@@ -1,7 +1,5 @@
 import axios from 'axios';
-import {
-    LOGIN_USER
-} from './types';
+
 
 export function loginUser(dataTosubmit){
     const requset = axios.post('/api/users/login', dataTosubmit)
@@ -19,6 +17,16 @@ export function registerUser(dataTosubmit){
 
     return {
         type: "REGISTER_USER",
+        payload: requset
+    }
+}
+
+export function authrUser(){
+    const requset = axios.get('/api/users/auth')
+    .then(res => res.data)
+
+    return {
+        type: "AUTH_USER",
         payload: requset
     }
 }

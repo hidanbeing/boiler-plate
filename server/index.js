@@ -23,11 +23,11 @@ mongoose.connect(config.mongoURI).then(() => console.log("MongoDB Connected.."))
 
 app.get('/',(req,res) => res.send("Hello World! 안녕하세요!"))
 
-
+/*
 app.get('/api/hello', (req, res)=>{
     res.send("안녕하세요!")
 })
-
+*/
 
 app.post('/api/users/register', (req,res) => {
     // 회원 가입할 때 필요한 정보들을 client에서 가져오면 데이터베이스에 넣어줌
@@ -73,7 +73,7 @@ app.post('/api/users/login', (req,res)=>{
 })
 
 
-app.post('/api/users/auth', auth, (req, res)=>{
+app.get('/api/users/auth', auth, (req, res)=>{
     res.status(200).json({
         _id: req.user._id,
         isAdmin: req.user.role === 0? false : true,

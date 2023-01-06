@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {useDispatch} from 'react-redux';
 import { registerUser } from '../../../_actions/User_actions';
 import { useNavigate } from "react-router-dom";
+import Auth from '../../../hoc/auth';
 
 function ResigterPage() {
   const dispatch = useDispatch();
@@ -80,4 +81,4 @@ function ResigterPage() {
   )
 }
 
-export default ResigterPage
+export default Auth(ResigterPage,false);
